@@ -36,6 +36,17 @@ public class Project {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private User manager;
 
+    @Column(name = "STATUS")
+    private Integer status;
+
+    public ProjectStatus getStatus() {
+        return status == null ? null : ProjectStatus.fromId(status);
+    }
+
+    public void setStatus(ProjectStatus status) {
+        this.status = status == null ? null : status.getId();
+    }
+
     public User getManager() {
         return manager;
     }

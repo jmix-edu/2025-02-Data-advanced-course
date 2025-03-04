@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <view xmlns="http://jmix.io/schema/flowui/view"
-      title="msg://projectDetailView.title"
+      title="msg://timeEntryDetailView.title"
       focusComponent="form">
     <data>
-        <instance id="projectDc"
-                  class="com.company.projectmanagementdata.entity.Project">
+        <instance id="timeEntryDc"
+                  class="com.company.projectmanagementdata.entity.TimeEntry">
             <fetchPlan extends="_base">
-                <property name="manager" fetchPlan="_instance_name"/>
+                <property name="task" fetchPlan="_base"/>
+                <property name="user" fetchPlan="_base"/>
             </fetchPlan>
-            <loader id="projectDl"/>
+            <loader id="timeEntryDl"/>
         </instance>
     </data>
     <facets>
@@ -19,21 +20,26 @@
         <action id="closeAction" type="detail_close"/>
     </actions>
     <layout>
-        <formLayout id="form" dataContainer="projectDc">
+        <formLayout id="form" dataContainer="timeEntryDc">
             <responsiveSteps>
                 <responsiveStep minWidth="0" columns="1"/>
                 <responsiveStep minWidth="40em" columns="2"/>
             </responsiveSteps>
-            <textField id="nameField" property="name"/>
-            <dateTimePicker id="startDateField" property="startDate"/>
-            <dateTimePicker id="endDateField" property="endDate"/>
-            <entityPicker id="managerField" property="manager">
+            <entityPicker id="taskField" property="task">
                 <actions>
                     <action id="entityLookup" type="entity_lookup"/>
                     <action id="entityClear" type="entity_clear"/>
                 </actions>
             </entityPicker>
-            <select id="statusField" property="status"/>
+            <textField id="timeSpentField" property="timeSpent"/>
+            <dateTimePicker id="entryDateField" property="entryDate"/>
+            <entityPicker id="userField" property="user">
+                <actions>
+                    <action id="entityLookup" type="entity_lookup"/>
+                    <action id="entityClear" type="entity_clear"/>
+                </actions>
+            </entityPicker>
+            <textArea id="descriptionField" height="9.5em" property="description"/>
         </formLayout>
         <hbox id="detailActions">
             <button id="saveAndCloseButton" action="saveAction"/>
