@@ -7,6 +7,7 @@
         <item view="Task_.list" title="msg://com.company.projectmanagementdata.view.task/taskListView.title"/>
         <item view="TimeEntry.list"
               title="msg://com.company.projectmanagementdata.view.timeentry/timeEntryListView.title"/>
+        <item view="Roadmap.list" title="msg://com.company.projectmanagementdata.view.roadmap/roadmapListView.title"/>
     </menu>
 
 </menu-config>

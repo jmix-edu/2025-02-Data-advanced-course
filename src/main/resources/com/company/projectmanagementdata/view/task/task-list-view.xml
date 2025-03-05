@@ -33,7 +33,6 @@
             <properties include=".*"/>
         </genericFilter>
         <hbox id="buttonsPanel" classNames="buttons-panel">
-            <button id="createButton" action="tasksDataGrid.create"/>
             <button id="editButton" action="tasksDataGrid.edit"/>
             <button id="removeButton" action="tasksDataGrid.remove"/>
             <simplePagination id="pagination" dataLoader="tasksDl"/>
@@ -44,7 +43,6 @@
                   dataContainer="tasksDc"
                   columnReorderingAllowed="true">
             <actions>
-                <action id="create" type="list_create"/>
                 <action id="edit" type="list_edit"/>
                 <action id="remove" type="list_remove"/>
             </actions>
