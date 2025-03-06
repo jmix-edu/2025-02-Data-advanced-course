@@ -8,6 +8,8 @@
         <item view="TimeEntry.list"
               title="msg://com.company.projectmanagementdata.view.timeentry/timeEntryListView.title"/>
         <item view="Roadmap.list" title="msg://com.company.projectmanagementdata.view.roadmap/roadmapListView.title"/>
+        <item view="ProjectStatsView"
+              title="msg://com.company.projectmanagementdata.view.projectsats/projectSatsView.title"/>
     </menu>
 
 </menu-config>

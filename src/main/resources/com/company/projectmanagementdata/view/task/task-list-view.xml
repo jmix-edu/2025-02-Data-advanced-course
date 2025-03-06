@@ -8,6 +8,7 @@
                     class="com.company.projectmanagementdata.entity.Task">
             <fetchPlan extends="_base">
                 <property name="assignee" fetchPlan="_instance_name"/>
+                <property name="project" fetchPlan="_base"/>
             </fetchPlan>
             <loader id="tasksDl" readOnly="true">
                 <query>
@@ -51,6 +52,8 @@
                 <column property="assignee"/>
                 <column property="startDate"/>
                 <column property="estimatedEfforts"/>
+                <column property="label"/>
+                <column property="project"/>
             </columns>
         </dataGrid>
         <hbox id="lookupActions" visible="false">
