@@ -102,6 +102,7 @@
         <hbox id="detailActions">
             <button id="saveAndCloseButton" action="saveAction"/>
             <button id="closeButton" action="closeAction"/>
+            <button id="commitWithBeanValidationButton" text="msg://commitWithBeanValidation.text"/>
         </hbox>
     </layout>
 </view>

@@ -17,7 +17,7 @@
                 <action id="refresh" type="list_refresh"/>
             </actions>
             <columns>
-                <column property="projectNane"/>
+                <column property="projectName"/>
                 <column property="tasksCount"/>
                 <column property="plannedEfforts"/>
                 <column property="actualEfforts"/>

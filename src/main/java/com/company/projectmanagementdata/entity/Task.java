@@ -1,8 +1,6 @@
 package com.company.projectmanagementdata.entity;
 
-import io.jmix.core.DeletePolicy;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
-import io.jmix.core.entity.annotation.OnDeleteInverse;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 import jakarta.persistence.*;
@@ -45,6 +43,18 @@ public class Task {
 
     @Column(name = "LABEL")
     private String label;
+
+    @Column(name = "CLOSED", nullable = false)
+    @NotNull
+    private Boolean closed = false;
+
+    public Boolean getClosed() {
+        return closed;
+    }
+
+    public void setClosed(Boolean closed) {
+        this.closed = closed;
+    }
 
     public String getLabel() {
         return label;

@@ -1,6 +1,8 @@
 package com.company.projectmanagementdata.entity;
 
 import com.company.projectmanagementdata.datatype.ProjectLabels;
+import com.company.projectmanagementdata.validation.ProjectLabelsSize;
+import com.company.projectmanagementdata.validation.ValidDatesProject;
 import io.jmix.core.DeletePolicy;
 import io.jmix.core.annotation.DeletedBy;
 import io.jmix.core.annotation.DeletedDate;
@@ -23,6 +25,7 @@ import java.util.UUID;
         @Index(name = "IDX_PROJECT_ROADMAP", columnList = "ROADMAP_ID")
 })
 @Entity
+@ValidDatesProject
 public class Project {
     @JmixGeneratedValue
     @Column(name = "ID", nullable = false)
@@ -67,10 +70,13 @@ public class Project {
     //    @PropertyDatatype("projectLabels")
 //    @Convert(converter = ProjectLabelsConverter.class)
     @Column(name = "PROJECT_LABELS")
+    @ProjectLabelsSize(min = 3, max = 5)
     private ProjectLabels projectLabels;
+
     @DeletedBy
     @Column(name = "DELETED_BY")
     private String deletedBy;
+
     @DeletedDate
     @Column(name = "DELETED_DATE")
     private OffsetDateTime deletedDate;

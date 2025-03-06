@@ -4,7 +4,7 @@ import io.jmix.core.metamodel.annotation.JmixEntity;
 
 @JmixEntity
 public class ProjectStats {
-    private String projectNane;
+    private String projectName;
 
     private Integer tasksCount;
 
@@ -36,11 +36,11 @@ public class ProjectStats {
         this.tasksCount = tasksCount;
     }
 
-    public String getProjectNane() {
-        return projectNane;
+    public String getProjectName() {
+        return projectName;
     }
 
-    public void setProjectNane(String projectNane) {
-        this.projectNane = projectNane;
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
 }
