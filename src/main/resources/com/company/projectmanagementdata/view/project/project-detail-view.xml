@@ -38,6 +38,7 @@
             </entityPicker>
             <select id="statusField" property="status"/>
             <textField id="projectLabelsField" property="projectLabels" readOnly="true"/>
+            <textField id="ownerIdField" property="ownerId"/>
         </formLayout>
         <details id="roadmapDetails"
                  summaryText="msg://roadmapDetails.summary"
@@ -103,6 +104,7 @@
             <button id="saveAndCloseButton" action="saveAction"/>
             <button id="closeButton" action="closeAction"/>
             <button id="commitWithBeanValidationButton" text="msg://commitWithBeanValidation.text"/>
+            <button id="performBeanValidationButton" text="msg://performBeanValidation.text"/>
         </hbox>
     </layout>
 </view>

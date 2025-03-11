@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <view xmlns="http://jmix.io/schema/flowui/view"
       xmlns:c="http://jmix.io/schema/flowui/jpql-condition"
-      title="msg://taskListView.title"
-      focusComponent="tasksDataGrid">
+      title="msg://orderListView.title"
+      focusComponent="ordersDataGrid">
     <data>
-        <collection id="tasksDc"
-                    class="com.company.projectmanagementdata.entity.Task">
+        <collection id="ordersDc"
+                    class="com.company.projectmanagementdata.entity.Order">
             <fetchPlan extends="_base">
-                <property name="assignee" fetchPlan="_instance_name"/>
-                <property name="project" fetchPlan="_base"/>
+                <property name="customer" fetchPlan="_base"/>
             </fetchPlan>
-            <loader id="tasksDl" readOnly="true">
+            <loader id="ordersDl" readOnly="true">
                 <query>
-                    <![CDATA[select e from Task_ e]]>
+                    <![CDATA[select e from Order_ e]]>
                 </query>
             </loader>
         </collection>
@@ -30,31 +29,29 @@
     </actions>
     <layout>
         <genericFilter id="genericFilter"
-                       dataLoader="tasksDl">
+                       dataLoader="ordersDl">
             <properties include=".*"/>
         </genericFilter>
         <hbox id="buttonsPanel" classNames="buttons-panel">
-            <button id="editButton" action="tasksDataGrid.edit"/>
-            <button id="removeButton" action="tasksDataGrid.remove"/>
-            <simplePagination id="pagination" dataLoader="tasksDl"/>
+            <button id="createButton" action="ordersDataGrid.create"/>
+            <button id="editButton" action="ordersDataGrid.edit"/>
+            <button id="removeButton" action="ordersDataGrid.remove"/>
+            <simplePagination id="pagination" dataLoader="ordersDl"/>
         </hbox>
-        <dataGrid id="tasksDataGrid"
+        <dataGrid id="ordersDataGrid"
                   width="100%"
                   minHeight="20em"
-                  dataContainer="tasksDc"
+                  dataContainer="ordersDc"
                   columnReorderingAllowed="true">
             <actions>
+                <action id="create" type="list_create"/>
                 <action id="edit" type="list_edit"/>
                 <action id="remove" type="list_remove"/>
             </actions>
             <columns resizable="true">
-                <column property="name"/>
-                <column property="assignee"/>
-                <column property="startDate"/>
-                <column property="estimatedEfforts"/>
-                <column property="label"/>
-                <column property="project"/>
-                <column property="supposedEndDate"/>
+                <column property="orderNumber"/>
+                <column property="date"/>
+                <column property="customer"/>
             </columns>
         </dataGrid>
         <hbox id="lookupActions" visible="false">

@@ -15,9 +15,11 @@ import io.jmix.flowui.model.DataContext;
 import io.jmix.flowui.view.*;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Set;
 
 @Route(value = "projects/:id", layout = MainView.class)
 @ViewController(id = "Project.detail")
@@ -33,6 +35,8 @@ public class ProjectDetailView extends StandardDetailView<Project> {
     private ProjectsSavingService projectsSavingService;
     @Autowired
     private Notifications notifications;
+    @Autowired
+    private Validator validator;
 
     @Subscribe
     public void onInitEntity(final InitEntityEvent<Project> event) {
@@ -60,5 +64,25 @@ public class ProjectDetailView extends StandardDetailView<Project> {
                     .withPosition(Notification.Position.TOP_END)
                     .show();
         }
+    }
+
+    @Subscribe(id = "performBeanValidationButton", subject = "clickListener")
+    public void onPerformBeanValidationButtonClick(final ClickEvent<JmixButton> event) {
+        Set<ConstraintViolation<Project>> violations = validator.validate(getEditedEntity());
+
+        showExceptions(violations);
+
+    }
+
+    private void showExceptions(Set<ConstraintViolation<Project>> violations) {
+        StringBuilder sb = new StringBuilder();
+
+        for (ConstraintViolation<?> constraintViolation : violations) {
+            sb.append(constraintViolation.getMessage()).append("\n");
+        }
+
+        notifications.create(sb.toString())
+                .withPosition(Notification.Position.TOP_CENTER)
+                .show();
     }
 }

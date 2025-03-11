@@ -8,6 +8,9 @@
             <fetchPlan extends="_base"/>
         </collection>
     </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
     <layout>
         <hbox>
             <button id="refreshButton" action="projectStatsDataGrid.refresh"/>
