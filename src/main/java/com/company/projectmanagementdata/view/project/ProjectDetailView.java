@@ -5,6 +5,7 @@ import com.company.projectmanagementdata.datatype.ProjectLabels;
 import com.company.projectmanagementdata.entity.Project;
 import com.company.projectmanagementdata.entity.Roadmap;
 import com.company.projectmanagementdata.view.main.MainView;
+import com.company.projectmanagementdata.view.user.UserListView;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.router.Route;
@@ -85,4 +86,11 @@ public class ProjectDetailView extends StandardDetailView<Project> {
                 .withPosition(Notification.Position.TOP_CENTER)
                 .show();
     }
+
+    @Install(to = "participantsDataGrid.add", subject = "viewConfigurer")
+    private void participantsDataGridAddViewConfigurer(final UserListView view) {
+        view.setFilterProject(getEditedEntity());
+    }
+
+
 }

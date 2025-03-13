@@ -14,6 +14,10 @@
                 <query>
                     <![CDATA[select e from Project e]]>
                 </query>
+<!--                <query>-->
+<!--                    <![CDATA[select e from Project e-->
+<!--                        where function('actual_efforts', e.id) > e.totalEstimatedEfforts]]>-->
+<!--                </query>-->
             </loader>
         </collection>
     </data>
@@ -37,6 +41,7 @@
             <button id="createButton" action="projectsDataGrid.create"/>
             <button id="editButton" action="projectsDataGrid.edit"/>
             <button id="removeButton" action="projectsDataGrid.remove"/>
+            <button id="dmCreateButton" text="msg://createWithDataManager"/>
             <simplePagination id="pagination" dataLoader="projectsDl"/>
         </hbox>
         <dataGrid id="projectsDataGrid"

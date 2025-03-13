@@ -5,6 +5,7 @@ import io.jmix.core.entity.annotation.JmixGeneratedValue;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 import io.jmix.core.metamodel.annotation.JmixProperty;
+import io.jmix.pessimisticlock.annotation.PessimisticLock;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
@@ -20,6 +21,7 @@ import java.util.UUID;
 })
 @Entity(name = "Task_")
 @EntityListeners(TaskJpaListener.class)
+@PessimisticLock(timeoutSec = 10)
 public class Task {
     @JmixGeneratedValue
     @Column(name = "ID", nullable = false)

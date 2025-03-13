@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <view xmlns="http://jmix.io/schema/flowui/view"
       xmlns:c="http://jmix.io/schema/flowui/jpql-condition"
-      title="msg://taskListView.title"
+      title="msg://taskRepoListView.title"
       focusComponent="tasksDataGrid">
     <data>
         <collection id="tasksDc"
                     class="com.company.projectmanagementdata.entity.Task">
-            <fetchPlan extends="_base">
-                <property name="assignee" fetchPlan="_instance_name"/>
-                <property name="project" fetchPlan="_base"/>
-                <!--                <property name="project" fetchPlan="_base"/>-->
-            </fetchPlan>
-            <loader id="tasksDl" readOnly="true">
-                <query>
-                    <![CDATA[select e from Task_ e]]>
-                </query>
-            </loader>
+            <loader id="tasksDl" readOnly="true"/>
         </collection>
     </data>
     <facets>
@@ -35,8 +26,6 @@
             <properties include=".*"/>
         </genericFilter>
         <hbox id="buttonsPanel" classNames="buttons-panel">
-            <button id="editButton" action="tasksDataGrid.edit"/>
-            <button id="removeButton" action="tasksDataGrid.remove"/>
             <simplePagination id="pagination" dataLoader="tasksDl"/>
         </hbox>
         <dataGrid id="tasksDataGrid"
@@ -45,17 +34,13 @@
                   dataContainer="tasksDc"
                   columnReorderingAllowed="true">
             <actions>
-                <action id="edit" type="list_edit"/>
-                <action id="remove" type="list_remove"/>
             </actions>
             <columns resizable="true">
                 <column property="name"/>
-                <column property="assignee"/>
                 <column property="startDate"/>
                 <column property="estimatedEfforts"/>
                 <column property="label"/>
-                <column property="project"/>
-                <column property="supposedEndDate"/>
+                <column property="closed"/>
             </columns>
         </dataGrid>
         <hbox id="lookupActions" visible="false">

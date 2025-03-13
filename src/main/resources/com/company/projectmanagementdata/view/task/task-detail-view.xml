@@ -5,9 +5,14 @@
     <data>
         <instance id="taskDc"
                   class="com.company.projectmanagementdata.entity.Task">
-            <fetchPlan extends="_base">
+            <fetchPlan>
                 <property name="assignee" fetchPlan="_instance_name"/>
                 <property name="project" fetchPlan="_base"/>
+                <property name="name"/>
+                <property name="label"/>
+                <property name="closed"/>
+                <property name="startDate"/>
+                <property name="estimatedEfforts"/>
             </fetchPlan>
             <loader id="taskDl"/>
         </instance>

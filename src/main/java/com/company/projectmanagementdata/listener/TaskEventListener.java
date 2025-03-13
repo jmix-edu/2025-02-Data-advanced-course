@@ -33,7 +33,7 @@ public class TaskEventListener {
 
         int totalEfforts = project.getTasks().stream()
                 .mapToInt(task -> task.getEstimatedEfforts() == null
-                ? 0
+                        ? 0
                         : task.getEstimatedEfforts())
                 .sum();
         project.setTotalEstimatedEfforts(totalEfforts);

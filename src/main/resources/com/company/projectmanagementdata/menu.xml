@@ -11,13 +11,16 @@
         <item view="ProjectStatsView"
               title="msg://com.company.projectmanagementdata.view.projectstats/projectStatsView.title"/>
         <item view="WorkloadView" title="msg://com.company.projectmanagementdata.view.workload/workloadView.title"/>
-        <item view="Order_.list" title="msg://com.company.projectmanagementdata.view.order/orderListView.title"/>
+        <item view="Task_repo.list" title="msg://com.company.projectmanagementdata.view.task/taskRepoListView.title"/>
     </menu>
     <menu id="customers" description="msg://com.company.projectmanagementdata/menu_config.customers.description"
-          title="msg://com.company.projectmanagementdata/menu_config.customers.title">
+          title="msg://com.company.projectmanagementdata/menu_config.customers.title" opened="true">
         <item view="Customer.list"
               title="msg://com.company.projectmanagementdata.view.customer/customerListView.title"/>
+        <item view="Order_.list" title="msg://com.company.projectmanagementdata.view.order/orderListView.title"/>
         <item view="CustomSeachView"
               title="msg://com.company.projectmanagementdata.view.customseach/customSeachView.title"/>
+        <item view="CustomerSubstringSearchView"
+              title="msg://com.company.projectmanagementdata.view.customersubstringsearch/customerSubstringSearchView.title"/>
     </menu>
 </menu-config>
