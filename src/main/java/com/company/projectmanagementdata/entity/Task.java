@@ -21,7 +21,7 @@ import java.util.UUID;
 })
 @Entity(name = "Task_")
 @EntityListeners(TaskJpaListener.class)
-@PessimisticLock(timeoutSec = 10)
+@PessimisticLock(timeoutSec = 30000)
 public class Task {
     @JmixGeneratedValue
     @Column(name = "ID", nullable = false)

@@ -49,6 +49,7 @@
                 <action id="remove" type="list_remove"/>
             </actions>
             <columns resizable="true">
+                <column key="locked" autoWidth="true" flexGrow="0" header="msg://taskLocked.header"/>
                 <column property="name"/>
                 <column property="assignee"/>
                 <column property="startDate"/>
